@@ -1,6 +1,340 @@
-.box{
-    width: 400px;
-    /* height: 300px; */
-    margin-top: 50px;
-    overflow: hidden;
-}
+        @import url('https://fonts.googleapis.com/css2?family=Hanuman:wght@300;400;700;900&display=swap');
+
+        body {
+          font-family: 'Hanuman', serif;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          min-height: 100vh;
+        }
+
+        .navbar {
+          background: rgba(255, 255, 255, 0.95) !important;
+          backdrop-filter: blur(10px);
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: #667eea !important;
+        }
+
+        .nav-link {
+          font-weight: 500;
+          color: #333 !important;
+          transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+          color: #667eea !important;
+        }
+
+        .card {
+          border: none;
+          border-radius: 15px;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+          transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-primary {
+          background: linear-gradient(45deg, #667eea, #764ba2);
+          border: none;
+          border-radius: 25px;
+          padding: 10px 25px;
+          font-weight: 600;
+        }
+
+        .btn-primary:hover {
+          background: linear-gradient(45deg, #764ba2, #667eea);
+          transform: scale(1.05);
+        }
+
+        .table {
+          background: white;
+          border-radius: 10px;
+          overflow: hidden;
+        }
+
+        .table thead {
+          background: linear-gradient(45deg, #667eea, #764ba2);
+          color: white;
+        }
+
+        .donor-badge {
+          display: inline-block;
+          padding: 8px 15px;
+          margin: 5px;
+          background: linear-gradient(45deg, #667eea, #764ba2);
+          color: white;
+          border-radius: 25px;
+          font-weight: 600;
+        }
+
+        .status-paid {
+          color: #28a745;
+          font-weight: bold;
+        }
+
+        .status-unpaid {
+          color: #dc3545;
+          font-weight: bold;
+        }
+
+        .hero-section {
+          background: white;
+          border-radius: 20px;
+          padding: 50px;
+          margin: 30px 0;
+          text-align: center;
+        }
+
+        .section-title {
+          font-size: 2rem;
+          font-weight: 700;
+          color: #667eea;
+          margin-bottom: 30px;
+        }
+
+        .footer {
+          background: rgba(255, 255, 255, 0.95);
+          padding: 30px 0;
+          margin-top: 50px;
+        }
+
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+
+        body {
+          font-family: 'Hanuman', serif;
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          min-height: 100vh;
+        }
+
+        .navbar {
+          background: rgba(255, 255, 255, 0.95) !important;
+          backdrop-filter: blur(10px);
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: #667eea !important;
+        }
+
+        .nav-link {
+          font-weight: 500;
+          color: #333 !important;
+          transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+          color: #667eea !important;
+        }
+
+        .card {
+          border: none;
+          border-radius: 15px;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+          transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-primary {
+          background: linear-gradient(45deg, #667eea, #764ba2);
+          border: none;
+          border-radius: 25px;
+          padding: 10px 25px;
+          font-weight: 600;
+          transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+          background: linear-gradient(45deg, #764ba2, #667eea);
+          transform: scale(1.05);
+        }
+
+        .table {
+          background: white;
+          border-radius: 10px;
+          overflow: hidden;
+        }
+
+        .table thead {
+          background: linear-gradient(45deg, #667eea, #764ba2);
+          color: white;
+        }
+
+        .donor-badge {
+          display: inline-block;
+          padding: 12px 20px;
+          margin: 8px;
+          background: linear-gradient(45deg, #667eea, #764ba2);
+          color: white;
+          border-radius: 25px;
+          font-weight: 600;
+          box-shadow: 0 4px 10px rgba(102, 126, 234, 0.3);
+        }
+
+        .status-paid {
+          color: #28a745;
+          font-weight: bold;
+        }
+
+        .status-unpaid {
+          color: #dc3545;
+          font-weight: bold;
+        }
+
+        .hero-section {
+          background: white;
+          border-radius: 20px;
+          padding: 50px;
+          margin: 30px 0;
+          text-align: center;
+        }
+
+        .section-title {
+          font-size: 2rem;
+          font-weight: 700;
+          color: #667eea;
+          margin-bottom: 30px;
+        }
+
+        .footer {
+          background: rgba(255, 255, 255, 0.95);
+          padding: 30px 0;
+          margin-top: 50px;
+        }
+
+        .login-card {
+          max-width: 450px;
+          margin: 100px auto;
+        }
+
+        .user-badge {
+          display: inline-block;
+          padding: 8px 20px;
+          border-radius: 20px;
+          font-weight: 600;
+          margin-left: 10px;
+        }
+
+        .user-badge.manager {
+          background: linear-gradient(45deg, #28a745, #20c997);
+          color: white;
+        }
+
+        .user-badge.user {
+          background: linear-gradient(45deg, #ffc107, #ff9800);
+          color: white;
+        }
+
+        .hidden {
+          display: none !important;
+        }
+
+        .feature-card {
+          transition: all 0.3s;
+          cursor: pointer;
+        }
+
+        .feature-card:hover {
+          transform: translateY(-10px);
+        }
+
+        .feature-card i {
+          transition: transform 0.3s;
+        }
+
+        .feature-card:hover i {
+          transform: scale(1.2);
+        }
+
+        .modal-content {
+          border-radius: 15px;
+          border: none;
+        }
+
+        .modal-header {
+          background: linear-gradient(45deg, #667eea, #764ba2);
+          color: white;
+          border-radius: 15px 15px 0 0;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+          border-color: #667eea;
+          box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+        }
+
+        .action-btn {
+          margin: 0 2px;
+          transition: transform 0.2s;
+        }
+
+        .action-btn:hover {
+          transform: scale(1.1);
+        }
+
+        .footer {
+          background-color: #212529;
+          color: #adb5bd;
+          /* Lighter grey for text */
+        }
+
+        .footer h5 {
+          color: #ffffff;
+          font-weight: 600;
+          margin-bottom: 1.5rem;
+        }
+
+        .footer a {
+          color: #adb5bd;
+          text-decoration: none;
+          transition: color 0.3s;
+        }
+
+        .footer a:hover {
+          color: #ffffff;
+          text-decoration: underline;
+        }
+
+        .footer .logo-text {
+          line-height: 1.6;
+        }
+
+        .footer .app-badges img {
+          height: 40px;
+          transition: transform 0.2s;
+        }
+
+        .footer .app-badges img:hover {
+          transform: scale(1.05);
+        }
+
+        .footer-bottom {
+          border-top: 1px solid #343a40;
+          padding-top: 1.5rem;
+        }
+
+        .footer-bottom a {
+          margin-left: 1.5rem;
+        }
+
+        /* Make the logo in the footer a bit smaller */
+        .footer-logo {
+          max-width: 100px;
+          margin-bottom: 1rem;
+        }
