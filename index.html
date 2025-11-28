@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+    <!-- Login Section -->
+    <div id="loginSection">
+        <div class="container">
+            <div class="card login-card p-4 animate__animated animate__fadeIn">
+                <div class="text-center mb-4">
+                    <i class="fas fa-dharmachakra fa-4x text-primary"></i>
+                    <h2 class="mt-3">វត្តនាគវ័ន កុដិ២៧</h2>
+                    <p class="text-muted">សូមចូលប្រើប្រាស់ប្រព័ន្ធ</p>
+                </div>
+                <form id="loginForm" onsubmit="login(event)">
+                    <div class="mb-3">
+                        <label class="form-label"><i class="fas fa-user"></i> ឈ្មោះអ្នកប្រើប្រាស់</label>
+                        <input type="text" class="form-control" id="username" required>
+                        <small class="text-muted">សាកល្បង: manager ឬ user</small>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label"><i class="fas fa-lock"></i> ពាក្យសម្ងាត់</label>
+                        <input type="password" class="form-control" id="password" required>
+                        <small class="text-muted">សាកល្បង: 123456</small>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">
+                        <i class="fas fa-sign-in-alt"></i> ចូលប្រើប្រាស់
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="mainContent" class="hidden">
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <i class="fas fa-dharmachakra"></i> វត្តនាគវ័ន កុដិ២៧
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">ទំព័រដើម</a></li>
+                        <li class="nav-item"><a class="nav-link" href="monks.html">ព្រះសង្ឃ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="donors.html">ថ្លៃម្ហូប</a></li>
+                        <li class="nav-item"><a class="nav-link" href="utilities.html">ទឹកភ្លើង</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact">ទំនាក់ទំនង</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <!-- Home Section -->
+            <section id="home" class="animate__animated animate__fadeIn">
+                <div class="hero-section">
+                    <h1 class="display-4 fw-bold" style="color: #667eea;">
+                        សូមស្វាគមន៍
+                    </h1>
+                    <h2 class="mb-4">វត្តនាគវ័ន កុដិ២៧</h2>
+                    <p class="lead">ប្រព័ន្ធគ្រប់គ្រងទិន្នន័យវត្ត សម្រាប់ព្រះសង្ឃ ថ្លៃម្ហូប និងទឹកភ្លើង</p>
+                    <div class="row mt-5">
+                        <div class="col-md-4 mb-3">
+                            <div class="card p-4">
+                                <i class="fas fa-users fa-3x text-primary mb-3"></i>
+                                <h5>គ្រប់គ្រងព្រះសង្ឃ</h5>
+                                <p>ទិន្នន័យពេញលេញអំពីព្រះសង្ឃក្នុងវត្ត</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card p-4">
+                                <i class="fas fa-utensils fa-3x text-success mb-3"></i>
+                                <h5>ថ្លៃម្ហូប</h5>
+                                <p>កត់ត្រាអ្នកបង់ថ្លៃម្ហូបប្រចាំថ្ងៃ</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card p-4">
+                                <i class="fas fa-bolt fa-3x text-warning mb-3"></i>
+                                <h5>ទឹកភ្លើង</h5>
+                                <p>គ្រប់គ្រងការបង់ប្រាក់ទឹក និងភ្លើង</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Monks Section -->
+            <section id="monks" class="mt-5">
+                <div class="card p-4 animate__animated animate__fadeInUp">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2 class="section-title mb-0"><i class="fas fa-user-tie"></i> បញ្ជីព្រះសង្ឃ</h2>
+                        <button class="btn btn-primary" onclick="showAddMonkModal()">
+                            <i class="fas fa-plus"></i> បន្ថែមព្រះសង្ឃ
+                        </button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ល.រ</th>
+                                    <th>ឈ្មោះព្រះសង្ឃ</th>
+                                    <th>តួនាទី</th>
+                                    <th>ខេត្តកំណើត</th>
+                                    <th>សាលារៀន</th>
+                                    <th>សកម្មភាព</th>
+                                </tr>
+                            </thead>
+                            <tbody id="monksTableBody">
+                                <tr>
+                                    <td>១</td>
+                                    <td>ព្រះអាន់ សុវណ្ណ</td>
+                                    <td>អធិការ</td>
+                                    <td>កំពង់ចាម</td>
+                                    <td>សាលាអន្តរជាតិ ABC</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning" onclick="editMonk(0)"><i
+                                                class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-danger" onclick="deleteMonk(0)"><i
+                                                class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>២</td>
+                                    <td>ព្រះវិចិត្រ ច័ន្ទថា</td>
+                                    <td>សមាធិ</td>
+                                    <td>ព្រះសីហនុ</td>
+                                    <td>វិទ្យាល័យ ហ៊ុនសែន</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning" onclick="editMonk(1)"><i
+                                                class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-danger" onclick="deleteMonk(1)"><i
+                                                class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>៣</td>
+                                    <td>ព្រះសុភា រដ្ឋា</td>
+                                    <td>សិស្ស</td>
+                                    <td>ភ្នំពេញ</td>
+                                    <td>សាកលវិទ្យាល័យ ភូមិន្ទ</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-warning" onclick="editMonk(2)"><i
+                                                class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-danger" onclick="deleteMonk(2)"><i
+                                                class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Food Donors Section -->
+            <section id="food" class="mt-5">
+                <div class="card p-4 animate__animated animate__fadeInUp">
+                    <h2 class="section-title"><i class="fas fa-hand-holding-heart"></i> បញ្ជីអ្នកបង់ថ្លៃម្ហូប</h2>
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" id="searchDonor"
+                                placeholder="ស្វែងរកឈ្មោះអ្នកបង់..." onkeyup="searchDonor()">
+                        </div>
+                        <div class="col-md-6">
+                            <button class="btn btn-primary" onclick="showAddDonorModal()">
+                                <i class="fas fa-plus"></i> បន្ថែមអ្នកបង់
+                            </button>
+                        </div>
+                    </div>
+                    <div id="donorsList" class="mt-3">
+                        <div class="donor-badge animate__animated animate__bounceIn">លោក សុខ សំណាង - ថ្ងៃនេះ</div>
+                        <div class="donor-badge animate__animated animate__bounceIn animate__delay-1s">លោកស្រី ឃីម សោភា
+                            - ម្សិលមិញ</div>
+                        <div class="donor-badge animate__animated animate__bounceIn animate__delay-2s">លោក ជា វិចិត្រ -
+                            ថ្ងៃទី២៨</div>
+                        <div class="donor-badge animate__animated animate__bounceIn animate__delay-3s">លោកស្រី ពេជ្រ
+                            ច័ន្ទថា - ថ្ងៃទី២៧</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Utilities Section -->
+            <section id="utilities" class="mt-5">
+                <div class="card p-4 animate__animated animate__fadeInUp">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2 class="section-title mb-0"><i class="fas fa-file-invoice-dollar"></i> ប្រវត្តិបង់ទឹកភ្លើង
+                        </h2>
+                        <button class="btn btn-primary" onclick="showAddUtilityModal()">
+                            <i class="fas fa-plus"></i> បន្ថែមប្រវត្តិបង់
+                        </button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>ខែ</th>
+                                    <th>ទឹក (រៀល)</th>
+                                    <th>ភ្លើង (រៀល)</th>
+                                    <th>សរុប (រៀល)</th>
+                                    <th>ស្ថានភាព</th>
+                                    <th>សកម្មភាព</th>
+                                </tr>
+                            </thead>
+                            <tbody id="utilitiesTableBody">
+                                <tr>
+                                    <td>តុលា ២០២៥</td>
+                                    <td>៣៥,០០០</td>
+                                    <td>៨៥,០០០</td>
+                                    <td>១២០,០០០</td>
+                                    <td><span class="status-paid"><i class="fas fa-check-circle"></i> បានបង់</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-info"><i class="fas fa-eye"></i></button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>កញ្ញា ២០២៥</td>
+                                    <td>៣២,០០០</td>
+                                    <td>៧៨,០០០</td>
+                                    <td>១១០,០០០</td>
+                                    <td><span class="status-paid"><i class="fas fa-check-circle"></i> បានបង់</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-info"><i class="fas fa-eye"></i></button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>សីហា ២០២៥</td>
+                                    <td>៣៨,០០០</td>
+                                    <td>៩២,០០០</td>
+                                    <td>១៣០,០០០</td>
+                                    <td><span class="status-unpaid"><i class="fas fa-times-circle"></i>
+                                            មិនទាន់បង់</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-info"><i class="fas fa-eye"></i></button>
+                                        <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="mt-5">
+                <div class="card p-4 animate__animated animate__fadeInUp">
+                    <h2 class="section-title"><i class="fas fa-map-marker-alt"></i> ទំនាក់ទំនង</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-temple"></i> វត្តនាគវ័ន កុដិ២៧</h5>
+                            <p><i class="fas fa-map-pin"></i> អាសយដ្ឋាន: ភ្នំពេញ កម្ពុជា</p>
+                            <p><i class="fas fa-phone"></i> លេខទូរស័ព្ទ: 012 345 678</p>
+                            <p><i class="fas fa-envelope"></i> អ៊ីម៉ែល: watnagavoan@temple.kh</p>
+                            <p><i class="fas fa-clock"></i> ម៉ោងបើកទទួល: រៀងរាល់ថ្ងៃ ៦ព្រឹក - ៦ល្ងាច</p>
+                        </div>
+                        <div class="col-md-6">
+                            <div
+                                style="background: #f0f0f0; height: 300px; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
+                                <p class="text-muted"><i class="fas fa-map fa-3x"></i><br>ផែនទីទីតាំង</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer mt-5">
+            <div class="container text-center">
+                <p class="mb-0">&copy; ២០២៥ វត្តនាគវ័ន កុដិ២៧ | រក្សាសិទ្ធិគ្រប់យ៉ាង</p>
+                <p class="text-muted">បង្កើតឡើងដោយស្រឡាញ់ និងការគោរព</p>
+            </div>
+        </div>
+
+        <!-- Bootstrap Modal for Add Monk -->
+        <div class="modal fade" id="monkModal" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">បន្ថែមព្រះសង្ឃ</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="monkForm">
+                            <div class="mb-3">
+                                <label class="form-label">ឈ្មោះព្រះសង្ឃ</label>
+                                <input type="text" class="form-control" id="monkName" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">តួនាទី</label>
+                                <select class="form-select" id="monkRole">
+                                    <option>អធិការ</option>
+                                    <option>សមាធិ</option>
+                                    <option>សិស្ស</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">ខេត្តកំណើត</label>
+                                <input type="text" class="form-control" id="monkProvince">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">សាលារៀន</label>
+                                <input type="text" class="form-control" id="monkSchool">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">បោះបង់</button>
+                        <button type="button" class="btn btn-primary" onclick="addMonk()">រក្សាទុក</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        const users = { manager: "123456", user: "123456" };
+        function login(event) {
+            event.preventDefault();
+            const username = document.getElementById("username").value.trim();
+            const password = document.getElementById("password").value.trim();
+            if (users[username] && users[username] === password) {
+                document.getElementById("loginSection").classList.add("hidden");
+                document.getElementById("mainContent").classList.remove("hidden");
+                const userInfo = document.getElementById("userInfo");
+                userInfo.innerHTML = `<i class="fas fa-user"></i> ${username} <span class="user-badge ${username === 'manager' ? 'manager' : 'user'}">${username === 'manager' ? 'Manager' : 'User'}</span>`;
+                document.querySelectorAll('.manager-only').forEach(btn => {
+                    if (username !== 'manager') btn.classList.add('hidden'); else btn.classList.remove('hidden');
+                });
+            } else {
+                alert('ឈ្មោះអ្នកប្រើប្រាស់ ឬពាក្យសម្ងាត់មិនត្រឹមត្រូវ!');
+            }
+        }
+        function logout() {
+            document.getElementById("loginSection").classList.remove("hidden");
+            document.getElementById("mainContent").classList.add("hidden");
+            document.getElementById("loginForm").reset();
+        }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Data storage
+        let monks = [
+            { name: "ព្រះអាន់ សុវណ្ណ", role: "អធិការ", province: "កំពង់ចាម", school: "សាលាអន្តរជាតិ ABC" },
+            { name: "ព្រះវិចិត្រ ច័ន្ទថា", role: "សមាធិ", province: "ព្រះសីហនុ", school: "វិទ្យាល័យ ហ៊ុនសែន" },
+            { name: "ព្រះសុភា រដ្ឋា", role: "សិស្ស", province: "ភ្នំពេញ", school: "សាកលវិទ្យាល័យ ភូមិន្ទ" }
+        ];
+
+        let donors = [
+            "លោក សុខ សំណាង - ថ្ងៃនេះ",
+            "លោកស្រី ឃីម សោភា - ម្សិលមិញ",
+            "លោក ជា វិចិត្រ - ថ្ងៃទី២៨",
+            "លោកស្រី ពេជ្រ ច័ន្ទថា - ថ្ងៃទី២៧"
+        ];
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Monk functions
+        function showAddMonkModal() {
+            document.getElementById('monkForm').reset();
+            new bootstrap.Modal(document.getElementById('monkModal')).show();
+        }
+
+        function addMonk() {
+            const name = document.getElementById('monkName').value;
+            const role = document.getElementById('monkRole').value;
+            const province = document.getElementById('monkProvince').value;
+            const school = document.getElementById('monkSchool').value;
+
+            if (name) {
+                monks.push({ name, role, province, school });
+                renderMonksTable();
+                bootstrap.Modal.getInstance(document.getElementById('monkModal')).hide();
+            }
+        }
+
+        function editMonk(index) {
+            alert('កែប្រែព្រះសង្ឃលេខ ' + (index + 1));
+        }
+
+        function deleteMonk(index) {
+            if (confirm('តើអ្នកពិតជាចង់លុបព្រះសង្ឃនេះមែនទេ?')) {
+                monks.splice(index, 1);
+                renderMonksTable();
+            }
+        }
+
+        function renderMonksTable() {
+            const tbody = document.getElementById('monksTableBody');
+            tbody.innerHTML = monks.map((monk, i) => `
+                <tr class="animate__animated animate__fadeIn">
+                    <td>${i + 1}</td>
+                    <td>${monk.name}</td>
+                    <td>${monk.role}</td>
+                    <td>${monk.province}</td>
+                    <td>${monk.school}</td>
+                    <td>
+                        <button class="btn btn-sm btn-warning" onclick="editMonk(${i})"><i class="fas fa-edit"></i></button>
+                        <button class="btn btn-sm btn-danger" onclick="deleteMonk(${i})"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        // Donor functions
+        function showAddDonorModal() {
+            const name = prompt('បញ្ចូលឈ្មោះអ្នកបង់:');
+            if (name) {
+                const date = new Date().toLocaleDateString('km-KH');
+                donors.unshift(name + ' - ' + date);
+                renderDonorsList();
+            }
+        }
+
+        function searchDonor() {
+            const search = document.getElementById('searchDonor').value.toLowerCase();
+            const filtered = donors.filter(d => d.toLowerCase().includes(search));
+            renderDonorsList(filtered);
+        }
+
+        function renderDonorsList(list = donors) {
+            const container = document.getElementById('donorsList');
+            container.innerHTML = list.map(donor =>
+                `<div class="donor-badge animate__animated animate__bounceIn">${donor}</div>`
+            ).join('');
+        }
+
+        // Utility functions
+        function showAddUtilityModal() {
+            alert('បន្ថែមប្រវត្តិបង់ទឹកភ្លើងថ្មី');
+        }
+    </script>
+
+
+    
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
